@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <title>ГАЙКАРРИЕС</title>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #cbc1d2;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">ГАЙКАРРИЕС</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"
+             href="http://127.0.0.1:8000/cart/"
+             data-bs-toggle="modal"
+             data-bs-target="cart/">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+              <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+            </svg>
+          </a>
+          <div class="modal fade" id="modal-cart" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header" style="background-color: #cbc1d2;">
+                  <h5 class="modal-title" id="exampleModalLabel">Корзина</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col">Название</th>
+                      <th scope="col">Кол-во</th>
+                      <th scope="col">Цена</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for item in cart %}
+                    <tr>
+                      <a class='cart' pid={{item.product.id}}>
+                        <td><img src="{{item.product.image.url}}" alt=""></td>
+                        <td><a href="#">{{product.name}}</a></td>
+                        <td>{{item.product.name}}</td>
+                        <td>{{item.quantity}} шт</td>
+                        <td>{{item.product.cost|floatformat:2}}р</td>
+                      </a>
+                    </tr>
+
+                    {% endfor %}
+
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><img src="images/products/ложка.webp" alt=""></td>
+                      <td><a href="#">Ложка</a></td>
+                      <td>1 шт</td>
+                      <td>175р</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><img src="images/products/6569613563.webp" alt=""></td>
+                      <td><a href="#">Варенье</a></td>
+                      <td>1 шт</td>
+                      <td>175р</td>
+                    </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" style="background-color: #cbc1d2;"
+                          data-bs-dismiss="modal">Закрыть
+                  </button>
+                  <button type="button" class="btn btn-primary" style="background-color: #cbc1d2;">
+                    Оплатить
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active"
+             aria-current="page"
+             href="#"
+             data-bs-toggle="modal"
+             data-bs-target="#modal-user">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 height="1em" viewBox="0 0 448 512">
+              <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
+            </svg>
+          </a>
+          <div class="modal fade" id="modal-user" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Профиль</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                </div>
+                <div class="modal-anketa">
+                  <div class="my-anketa">
+                    <img src="/images/ава.jpg" class="img-thumbnail" alt="">
+                  </div>
+                  <div class="my-anketa-text">
+                    <p>Имя: {{ user.first_name }}</p>
+                    <p>Фамилия: {{ user.last_name }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Номер телефона: {{ user.phone_number }}</p>
+                    <p>Адрес доставки: {{ user.address }}</p>
+                    </p>
+                    <p>
+                      <a href="{% url 'logout' %}">Выйти</a>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" style="background-color: #cbc1d2;"
+                            data-bs-dismiss="modal">Закрыть
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+
+      </ul>
+
+      <form class="search-box">
+        <input type="text" name="q" class="search-txt" placheholder="Search">
+        <button class="search-btn" type='submit'>
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+          </svg>
+        </button>
+      </form>
+
+
+    </div>
+  </div>
+</nav>
+<main>
+  <section class="section section-catalog">
+    <div class="container">
+      <header class="section_header">
+        <h2 class="section_title">Категории</h2>
+        <nav class="catalog-nav">
+          <ul class="catalog-nav_wrapper">
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == '' %}background-color: grey;{% endif %}" type="button"><a href="/"
+                                                                         style="text-decoration: none;">Все</a>
+              </button>
+            </li>
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == 'CT' %}background-color: grey;{% endif %}" type="button"><a href="{% url 'category' 'CT' %}"
+                                                               style="text-decoration: none;">Одежда</a></button>
+            </li>
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == 'SH' %}background-color: grey;{% endif %}" type="button"><a href="{% url 'category' 'SH' %}"
+                                                               style="text-decoration: none;">Обувь</a></button>
+            </li>
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == 'H' %}background-color: grey;{% endif %}" type="button"><a href="{% url 'category' 'H' %}"
+                                                               style="text-decoration: none;">Дом и сад</a></button>
+            </li>
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == 'BH' %}background-color: grey;{% endif %}" type="button"><a href="{% url 'category' 'BH' %}"
+                                                               style="text-decoration: none;">Красота и здоровье</a>
+              </button>
+            </li>
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == 'FK' %}background-color: grey;{% endif %}" type="button"><a href="{% url 'category' 'FK' %}"
+                                                               style="text-decoration: none;">Для детей</a></button>
+            </li>
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == 'F' %}background-color: grey;{% endif %}" type="button"><a href="{% url 'category' 'F' %}"
+                                                               style="text-decoration: none;">Еда</a></button>
+            </li>
+            <li class="catalog-nav_item">
+              <button class="catalog-nav_btn" style="{% if val == 'ST' %}background-color: grey;{% endif %}" type="button"><a href="{% url 'category' 'ST' %}"
+                                                               style="text-decoration: none;">Канцтовары</a></button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  </section>
+</main>
+
+{% if is_carousel %}
+<div class="container-fluid">
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel"
+       data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+         aria-current="true" aria-label="Slide 1"></a>
+      <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+         aria-label="Slide 2"></a>
+      <a type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+         aria-label="Slide 3"></a>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/sale11.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/sale22.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/sale33.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+{% endif %}
+<section class="main-content">
+  <div class="container">
+    <div class="row">
+      {% for product in products %}
+      <div class="col-lg-4 .col-sm-50 mb-4">
+        <div class="product-card">
+          <div class="product-thumb">
+            <a href="{% url 'product_detail' product.id %}"><img src="{{product.image.url}}" alt=""></a>
+          </div>
+          <div class="product-details">
+            <h4><a href="{% url 'product_detail' product.id %}">{{product.name}}</a></h4>
+            <p>
+              {{product.description}}
+            </p>
+          </div>
+          <div class="bottom-product-details d-flex justify-content-between">
+            <div class="product-price">
+              {{product.cost|floatformat:2}}р
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<footer>
+  <section class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-6">
+          <h4>Информация</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">О магазине</a></li>
+            <li><a href="#">Оплата и доставка</a></li>
+            <li><a href="#">Контакты</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <h4>Время работы</h4>
+          <ul class="list-unstyled">
+            <li><a>г.Москва, Гороховский переулок, 4, корпус 1</a></li>
+            <li><a>пн-сб 08:00–22:00</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <h4>Контакты</h4>
+          <ul class="list-unstyled">
+            <li><a href="tel:+7 (499) 267-15-45">+7 (499) 267-15-45</a></li>
+            <li><a href="tel:+7 (499) 322-78-00">+7 (499) 322-78-00</a></li>
+            <li><a href="tel:+7 (499) 404-12-20">+7 (499) 404-12-20</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>

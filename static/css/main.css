@@ -1,0 +1,278 @@
+body{
+     font-size:16px;
+     font-weight:400;
+     color:#000;
+     background-color:#fff;
+     main-width:320px;
+     }
+img{max-width:100%;
+    height:auto;
+}
+section{padding:50px 0;
+}
+a{color:#111;
+
+}
+.modal-body img{
+max-width:100px;
+}
+.container-fluid {
+margin-top:20px;
+}
+.container-fluid a{
+color:#111;
+}
+.my-carousel.carousel-item {
+display:flex;
+max-weight:400px;
+margin:30px 30px;
+}
+.product-card{
+box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06);
+transition: all .3s;
+}
+.product-details a{
+display-flex;
+align-items:center;
+justify-content:center;
+height:200px;
+padding:20px;
+}
+.product-thumb img{
+width:200px;
+height:300px;
+display:block;
+margin:auto;
+}
+.product-details h4 a{
+front-weight:500;
+display:block;
+height:60px;
+overflow:hidden;
+text-decoration:none;
+text-align:left;
+}
+.product-details p {
+font-size:15px;
+margin-bottom:20px;
+color:#999;
+height:44px;
+overflow:hidden;
+text-align:justify;
+margin:1em
+}
+.bottom-product-details{
+overflow:hidden;
+border-top:1px solid #eee;
+padding-top:20px;
+}
+.product-price{
+font-size:25px;
+color:#ee6e73;
+font-weight:600;
+}
+.product-price small{
+color:#ccc;
+font-weight:400;
+text-decoration:line-through;
+margin-right:5px;
+}
+.product-links a{
+font-size:30px;
+margin-right:10px;
+
+}
+.footer{
+background-color:#cbc1d2;
+border-radius: 10px;
+}
+.navbar {
+border-radius: 10px;
+front-weight: 1000px;
+}
+.container-fluid a{
+font-size:24px;
+
+
+}
+.my-anketa img{
+width:100px;
+height:100px;
+display:block;
+margin:auto;
+float: left;
+
+}
+
+.my-anketa-txt input{
+border-radius:10px;
+}
+.table{
+margin-top:60px;
+}
+
+.history img{
+max-width:100px;
+}
+.search-box {
+display:flex;
+position:absolute;
+height:40px;
+width:900px;
+margin-left:100px;
+border-radius:40px;
+padding:10px;
+align-items:center;
+background-color:#fff;
+}
+
+.search-btn {
+display:flex;
+}
+.search-txt {
+border:none;
+outline:none;
+background:none;
+padding:0;
+color:#000;
+front-size:16px;
+width:900px;
+}
+.form-group input {
+      padding: 10px;
+      border: 1px solid #000;
+      border-radius: 10px;
+      background-color: #ff6161;
+    }
+.form-group input[type="submit"]:hover {
+      color: #ff2b2b;
+    }
+.form-group-card input{
+border-radius: 10px;
+background-color: #cbc1d2;
+}
+.form-group-card input{
+border-radius: 10px;
+background-color: #cbc1d2;
+}
+.Opisanie p{
+font-size:30px;
+color:#000;
+height:44px;
+overflow:visible;
+text-align:justify;
+font-weight:400;
+}
+.Opisanie-text p{
+font-size:15px;
+color:#000;
+height:44px;
+overflow:visible;
+text-align:justify;
+font-weight:600;
+}
+.history h4{
+text-align:center;
+}
+.my-anketa-text p{
+margin-left:10px;
+margin-top:10px;
+}
+.my-anketa img{
+margin-left:10px;
+margin-top:10px;
+margin-right:10px;
+}
+.collapse{
+background-color: #cbc1d2;
+border-radius: 10px;
+}
+
+.navbar-brand{
+color: #000;
+text-decoration:none;
+front-weight:500;
+font-size:36px;
+font-family:"Montserrat",sans-serif;
+}
+.section{
+padding:50px 0;
+}
+@media(max-width:576px){
+.section{
+padding:90px 0;
+}
+}
+.section_title{
+font-size:28px;
+text-align:center;
+margin:0 auto 40px;
+font-family:"Montserrat",sans-serif;
+font-weight:600
+}
+@media(max-width:576px){
+.section_title{
+font-size:16px;
+}
+.catalog-nav{
+display:flex;
+justify-content:center;
+}
+}
+.catalog-nav_wrapper{
+list-style:none;
+margin:0;
+padding:0;
+display:flex;
+box-shadow:0px 2px 20px 0px rgba(0,0,0,0.1);
+overflow:hidden;
+border-radius:23px;
+}
+.section_header h2{
+font-family: 'Ysabeau Office', sans-serif;}
+.catalog-nav_btn{
+padding:0;
+border:0;
+background-color:transparent;
+cursor:pointer;
+display:inline-block;
+text-align:center;
+padding:15px;
+min-width:150px;
+font-size:18px;
+
+font-weight:900;
+color:#cbc1d;
+border-right:1px solid #e5e5e5;
+transition: border .2s, background .2s, color .2s;
+}
+.catalog-nav_btn.is-active{
+background:#b3b3b3;
+color:#000;
+}
+.catalog-nav_btn:hover{
+background:#cbc1d1;
+border-right-color:#cbc1d1;
+}
+.catalog-nav_item:last-of-type .catalog-nav_btn{
+border-right:0;
+}
+@media(max-width:1200px){
+.catalog-nav{
+width:500px;
+max-width:100%;
+margin:0 auto;}
+
+.catalog-nav_wrapper{
+flex-wrap:wrap;
+}
+.catalog-nav_item{
+width:50%;
+flex-grow:1;
+}
+.catalog-nav_btn{
+min-width:0;
+width:100%;
+border-top:1px solid #cbc1d;
+}
+}

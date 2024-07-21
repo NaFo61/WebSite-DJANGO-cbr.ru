@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Регистрация</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #cbc1d2;
+    }
+
+    .container {
+      max-width: 400px;
+      max-height: 300px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position:relative;
+      bottom: -20px;
+
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label,
+    .form-group input {
+      display: block;
+      width: 100%;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      padding: 7px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #cccccc;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #cccccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Вход</h2>
+    <form method="post">
+        {% csrf_token %}
+      {% for f in form %}
+      <p><div class = "form-group"> <label for = '{{ f.id_for_label }}'>{{f.label}}:</label>{{ f }}</p></div>
+      <div class = "form-error">{{ f.errors }}</div>
+      {% endfor %}
+      <div class="form-group">
+        <a>Ещё нет аккаунта?</a> <a href = "/registration">Зарегистрироваться</a>
+        <br>
+          <input type="submit" value="Войти"></input>
+        </br>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
